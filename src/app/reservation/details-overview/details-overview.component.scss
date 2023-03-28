@@ -1,0 +1,31 @@
+#button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px; /* hauteur de la div conteneur */
+}
+button {
+  flex: 1;
+  height: 100%;
+  background-color: #fff;
+  border: 0.1px solid lightgrey;
+  &:hover {
+    background-color: #f4f4f4;
+    cursor: pointer;
+  }
+}
+#relocateButton {
+  background-color: cadetblue;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  box-shadow: cadetblue 3px 3px 7px;
+  font-weight: bolder;
+  color: white;
+  height: 30px;
+  width: 100px;
+  &:active {
+    transform: translate(1px, 1px);
+    box-shadow: cadetblue 0 0 5px;
+  }
+}

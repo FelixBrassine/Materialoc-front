@@ -1,0 +1,38 @@
+#navCont{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: cadetblue;
+}
+a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  font-size: large;
+  padding: 1% 5%;
+  &:hover{
+    color: #003d3d;
+  }
+}
+.active{
+  font-size: x-large;
+  color: #003d3d;
+}
+@media (max-width: 1100px) {
+  a {
+    font-size: medium;
+  }
+  .active{
+    font-size: large;
+    color: #003d3d;
+  }
+}
+@media (max-width: 700px) {
+  a {
+    font-size: small;
+  }
+  .active{
+    font-size: medium;
+    color: #003d3d;
+  }
+}

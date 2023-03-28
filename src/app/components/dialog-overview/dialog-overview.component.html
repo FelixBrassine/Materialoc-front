@@ -1,0 +1,14 @@
+<div mat-dialog-content id="dialog">
+  <div>
+    <a class="link" routerLink="/user" routerLinkActive="active" (click)="onNoClick()">Mes infos</a>
+  </div>
+  <div>
+    <a class="link" routerLink="/reserver" routerLinkActive="active" (click)="onNoClick()">Mes demandes</a>
+  </div>
+  <div>
+    <a (click)="deconnection()" (click)="onNoClick()">Deconnexion</a>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Retour</button>
+  </div>
+</div>

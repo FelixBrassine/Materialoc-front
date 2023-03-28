@@ -1,0 +1,52 @@
+<div id="auth">
+  <div>
+    <mat-button-toggle-group [(ngModel)]="register" color="primary" mat-theme>
+    <mat-button-toggle [value]="false">Connexion</mat-button-toggle>
+    <mat-button-toggle [value]="true">S'enregister</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!register">
+    <div>
+      <input placeholder=" login" type="text" id="in-login" formControlName="login">
+    </div>
+    <div>
+      <input placeholder=" mot de passe" type="password" id="in-mdp" formControlName="password">
+    </div>
+    <div class="button">
+      <button type="submit">Connexion</button>
+    </div>
+  </form>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()" *ngIf="register">
+    <div>
+      <input placeholder=" email" type="text" formControlName="email">
+      <p *ngIf="registerForm.controls['email'].hasError('email')">Entrez un email valide</p>
+    </div>
+    <div>
+      <input placeholder=" mot de passe" type="password" formControlName="password">
+      <p *ngIf="registerForm.controls['password'].hasError('pattern')">Votre mot de passe doit contenir au moins 1 caractère minuscule, un majuscule, un spécial et un chiffre.</p>
+    </div>
+    <div>
+      <input placeholder=" comfirmez le mot de passe" type="password" formControlName="confirm">
+      <p *ngIf="registerForm.hasError('must-match')">Les passwords ne correspondent pas.</p>
+    </div>
+    <div>
+      <input placeholder=" nom" type="text" formControlName="name">
+    </div>
+    <div>
+      <input placeholder=" prénom" type="text" formControlName="firstName">
+    </div>
+    <div>
+      <input placeholder=" numéro de téléphone" type="text" formControlName="phoneNumber">
+      <p *ngIf="registerForm.controls['phoneNumber'].hasError('pattern')">Entrez une numéro de téléphone valide.</p>
+    </div>
+    <div>
+      <textarea rows="3" cols="50" placeholder=" adresse" formControlName="adress"></textarea>
+    </div>
+    <div class="button">
+      <button type="submit">Inscription</button>
+    </div>
+  </form>
+
+</div>

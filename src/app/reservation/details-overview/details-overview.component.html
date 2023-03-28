@@ -1,0 +1,62 @@
+
+<div *ngIf="reservation">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Réservation {{reservation.id}} : </mat-panel-title>
+        <mat-panel-description>de {{reservation.madeBy.firstName}} {{reservation.madeBy.name}} </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>
+        <strong>raison : </strong>{{reservation.justification}}
+        <mat-divider></mat-divider>
+        <strong>pour le</strong> {{reservation.date | date:'dd MMM yyyy' }}
+        <mat-divider></mat-divider>
+        <strong>de</strong> {{reservation.beginAt | date:"HH:mm"}}
+        <mat-divider></mat-divider>
+        <strong>à</strong> {{reservation.endAt | date:"HH:mm"}}
+        <mat-divider></mat-divider>
+        <strong>places souhaitées : </strong>{{reservation.neededCapacity}}
+      </p>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Salle : </mat-panel-title>
+        <mat-panel-description>Actuel : {{reservation.room.name}} </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-form-field  color="primary">
+        <mat-label>Salles : </mat-label>
+        <mat-select [(ngModel)]="roomId">
+          <mat-option *ngFor="let topping of roomList" [value]="topping.id">{{topping.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <button id="relocateButton" (click)="relocate(reservation.id)">Modifier</button>
+      <p>
+        <strong>id : </strong>{{reservation.room.id}}
+        <mat-divider></mat-divider>
+        <strong>name : </strong>{{reservation.room.name}}
+        <mat-divider></mat-divider>
+        <strong>type : </strong>{{reservation.room.teacherRoom ? 'salle des professeurs' : 'salle d\'études' }}
+        <mat-divider></mat-divider>
+        <strong>places : </strong>{{reservation.room.numberPlaces}}
+      </p>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Historique des status</mat-panel-title>
+        <mat-panel-description>actuel : {{reservation.currentStatus}}</mat-panel-description>
+      </mat-expansion-panel-header>
+      <p *ngFor="let status of reservation.statusHistory">
+        <strong>id : </strong>{{status.id}}
+        <mat-divider></mat-divider>
+        <strong>date : </strong>{{status.date | date:'dd MMM yyyy'}}
+        <mat-divider></mat-divider>
+        <strong>status : </strong>{{status.status}}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div id="button">
+    <button (click)="accept(reservation.id, reservation.room.id)">Accepter</button>
+    <button (click)="refuse(reservation.id)">Refuser</button>
+    <button (click)="delete(reservation.id)">Supprimer</button>
+  </div>
+</div>

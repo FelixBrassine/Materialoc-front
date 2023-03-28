@@ -1,0 +1,35 @@
+<div *ngIf="request">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Réservation {{request.id}} : </mat-panel-title>
+        <mat-panel-description>de {{request.firstName}} {{request.name}} </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>
+        <strong>login</strong> {{request.login}}
+        <mat-divider></mat-divider>
+        <strong>adresse : </strong>{{request.adress}}
+        <mat-divider></mat-divider>
+        <strong>email : </strong> {{request.email}}
+        <mat-divider></mat-divider>
+        <strong>téléphone : </strong> {{request.phoneNumber}}
+      </p>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Historique des status</mat-panel-title>
+        <mat-panel-description>actuel : {{request.currentStatus}}</mat-panel-description>
+      </mat-expansion-panel-header>
+      <p *ngFor="let status of request.statusHistory">
+        <strong>id : </strong>{{status.id}}
+        <mat-divider></mat-divider>
+        <strong>date : </strong>{{status.date | date:'dd MMM yyyy'}}
+        <mat-divider></mat-divider>
+        <strong>status : </strong>{{status.status}}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div id="button">
+    <button (click)="accept(request.id)">Accepter</button>
+    <button (click)="refuse(request.id)">Refuser</button>
+  </div>
+</div>

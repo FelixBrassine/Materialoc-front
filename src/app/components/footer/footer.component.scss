@@ -1,0 +1,36 @@
+#foot1 {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  background-color: cadetblue;
+}
+#foot1>* {
+  color: white;
+  margin: 0 5%;
+}
+#col1{
+  display: flex;
+  align-items: center;
+}
+#foot2 {
+  display: none;
+}
+@media (max-width: 700px) {
+  #foot1 {
+    display: none;
+  }
+  #foot2 {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    Width: 100%;
+    bottom: 0;
+    background-color: cadetblue;
+  }
+  #foot2>* {
+    color: white;
+    margin: 2% 5%;
+  }
+}

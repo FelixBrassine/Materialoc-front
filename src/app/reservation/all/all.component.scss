@@ -1,0 +1,39 @@
+#all {
+  background-color: #cfe8e8;
+  box-sizing: border-box;
+  width: 90%;
+  margin: 2% auto;
+  padding: 4% 7%;
+  box-shadow: lightgray 4px 4px 20px;
+  min-height: 68vh;
+}
+#loading {
+  display: flex;
+  justify-content: space-around;
+  margin: 3%;
+}
+table {
+   width: 100%;
+ }
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+img {
+  width: 10%;
+}
+button {
+  background-color: cadetblue;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  box-shadow: cadetblue 3px 3px 7px;
+  font-weight: bolder;
+  color: white;
+  height: 30px;
+  width: 100px;
+  &:active {
+    transform: translate(1px, 1px);
+    box-shadow: cadetblue 0 0 5px;
+  }
+}

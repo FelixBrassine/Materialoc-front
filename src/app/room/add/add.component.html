@@ -1,0 +1,26 @@
+<div id="add">
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()" >
+    <div>
+      <input placeholder=" nom de la salle" type="text" formControlName="name">
+    </div>
+    <div>
+      <input placeholder=" nombre de places" type="number" formControlName="numberPlaces">
+    </div>
+    <div>
+      <section class="example-section">
+        <mat-checkbox formControlName="teacherRoom" color="primary" class="example-margin">Salle réservée aux professeurs ?</mat-checkbox>
+      </section>
+    </div>
+    <div id="select">
+      <mat-form-field  color="primary"  appearance="fill">
+      <mat-label>Équipements</mat-label>
+      <mat-select formControlName="materialsId" multiple>
+        <mat-option *ngFor="let topping of materialsList" [value]="topping.id">{{topping.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+    <div class="button">
+      <button type="submit">Ajouter</button>
+    </div>
+  </form>
+</div>

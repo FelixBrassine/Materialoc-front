@@ -1,0 +1,30 @@
+<div id="add">
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <div>
+      <textarea rows="10" cols="50" placeholder=" justification" formControlName="justification"></textarea>
+    </div>
+    <div>
+      <input placeholder=" nombres de personnes" type="number" formControlName="neededCapacity">
+    </div>
+    <div>
+      <input placeholder=" date de réservation" type="date" formControlName="date">
+      <p *ngIf="registerForm.controls['date'].dirty && registerForm.controls['date'].hasError('notInfFuture')">Une réservation doit être faite au moins 4 jours à l'avance</p>
+    </div>
+    <div>
+      <input placeholder=" heure de début" type="time" formControlName="beginAt">
+      <p *ngIf="registerForm.controls['beginAt'].dirty && registerForm.controls['beginAt'].hasError('timeBeforeOpen')">Pas de réservation avant 8h</p>
+  </div>
+    <div>
+      <input placeholder=" heure de fin" type="time" formControlName="endAt">
+    </div>
+    <mat-form-field  color="primary"  appearance="fill">
+      <mat-label>Équipements</mat-label>
+      <mat-select formControlName="materialIds" multiple>
+        <mat-option *ngFor="let topping of materialsList" [value]="topping.id">{{topping.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="button">
+      <button type="submit">Enregistrer</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,16 @@
+<header>
+  <div id="headerCont">
+    <div id="navCont">
+      <a id="navHome" routerLink="/home" routerLinkActive="active">MATERIALOC</a>
+      <a class="link" routerLink="/materiel" routerLinkActive="active" *ngIf="connected">Équipements</a>
+      <a class="link" routerLink="/salle" routerLinkActive="active" *ngIf="connected">Salles</a>
+      <a class="link" routerLink="/reserver" routerLinkActive="active" *ngIf="connected">Réserver</a>
+      <a class="link" routerLink="/demande" routerLinkActive="active" *ngIf="admin">Demandes</a>
+    </div>
+    <div id="userCont" *ngIf="connected">
+      <img (click)="openDialog()" src="/assets/images/user-icon.png">
+    </div>
+  </div>
+</header>
+
+
